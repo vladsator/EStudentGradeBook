@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace EStudentGradeBook_BLL
 {
-    public class Class1
+    interface IDataManager
     {
+        void Add();
+        void Remove();
+        object GetList();
     }
 }
