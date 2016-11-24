@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ddb55e0ceaba41f6ab7ef9da443a2628" Name="Diagram1">
+        <EntityTypeShape EntityType="EStudentGradeBookDBModel.grouplesson" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EStudentGradeBookDBModel.group" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EStudentGradeBookDBModel.lesson" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EStudentGradeBookDBModel.mark" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EStudentGradeBookDBModel.student" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="EStudentGradeBookDBModel.FK_GroupLessons_GroupLesson_Group_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="EStudentGradeBookDBModel.FK_GroupLessons_GroupLesson_Lesson_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="EStudentGradeBookDBModel.FK_Students_Student_Group_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="EStudentGradeBookDBModel.FK_Marks_Mark_Lesson_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="EStudentGradeBookDBModel.FK_Marks_Mark_Student_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище EStudentGradeBookDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="grouplessons">
+          <Key>
+            <PropertyRef Name="grouplesson_id" />
+          </Key>
+          <Property Name="grouplesson_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grouplesson_group_id" Type="int" Nullable="false" />
+          <Property Name="grouplesson_lesson_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_cource" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lessons">
+          <Key>
+            <PropertyRef Name="lesson_id" />
+          </Key>
+          <Property Name="lesson_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lesson_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marks">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mark_student_id" Type="int" Nullable="false" />
+          <Property Name="mark_lesson_id" Type="int" Nullable="false" />
+          <Property Name="mark_value" Type="int" Nullable="false" />
+          <Property Name="mark_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_group_id" Type="int" />
+          <Property Name="student_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="student_surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="student_secondname" Type="nvarchar" MaxLength="50" />
+          <Property Name="student_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GroupLessons_GroupLesson_Group_Id">
+          <End Role="groups" Type="Self.groups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="grouplessons" Type="Self.grouplessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="grouplessons">
+              <PropertyRef Name="grouplesson_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupLessons_GroupLesson_Lesson_Id">
+          <End Role="lessons" Type="Self.lessons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="grouplessons" Type="Self.grouplessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lessons">
+              <PropertyRef Name="lesson_id" />
+            </Principal>
+            <Dependent Role="grouplessons">
+              <PropertyRef Name="grouplesson_lesson_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks_Mark_Lesson_Id">
+          <End Role="lessons" Type="Self.lessons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lessons">
+              <PropertyRef Name="lesson_id" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="mark_lesson_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks_Mark_Student_Id">
+          <End Role="students" Type="Self.students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="marks" Type="Self.marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="mark_student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Student_Group_Id">
+          <End Role="groups" Type="Self.groups" Multiplicity="0..1" />
+          <End Role="students" Type="Self.students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="student_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище EStudentGradeBookDBModelContainer">
+          <EntitySet Name="grouplessons" EntityType="Self.grouplessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lessons" EntityType="Self.lessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marks" EntityType="Self.marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GroupLessons_GroupLesson_Group_Id" Association="Self.FK_GroupLessons_GroupLesson_Group_Id">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="grouplessons" EntitySet="grouplessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupLessons_GroupLesson_Lesson_Id" Association="Self.FK_GroupLessons_GroupLesson_Lesson_Id">
+            <End Role="lessons" EntitySet="lessons" />
+            <End Role="grouplessons" EntitySet="grouplessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks_Mark_Lesson_Id" Association="Self.FK_Marks_Mark_Lesson_Id">
+            <End Role="lessons" EntitySet="lessons" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks_Mark_Student_Id" Association="Self.FK_Marks_Mark_Student_Id">
+            <End Role="students" EntitySet="students" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Student_Group_Id" Association="Self.FK_Students_Student_Group_Id">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EStudentGradeBookDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="grouplesson">
+          <Key>
+            <PropertyRef Name="grouplesson_id" />
+          </Key>
+          <Property Name="grouplesson_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grouplesson_group_id" Type="Int32" Nullable="false" />
+          <Property Name="grouplesson_lesson_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="group" Relationship="Self.FK_GroupLessons_GroupLesson_Group_Id" FromRole="grouplessons" ToRole="groups" />
+          <NavigationProperty Name="lesson" Relationship="Self.FK_GroupLessons_GroupLesson_Lesson_Id" FromRole="grouplessons" ToRole="lessons" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_cource" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="grouplessons" Relationship="Self.FK_GroupLessons_GroupLesson_Group_Id" FromRole="groups" ToRole="grouplessons" />
+          <NavigationProperty Name="students" Relationship="Self.FK_Students_Student_Group_Id" FromRole="groups" ToRole="students" />
+        </EntityType>
+        <EntityType Name="lesson">
+          <Key>
+            <PropertyRef Name="lesson_id" />
+          </Key>
+          <Property Name="lesson_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lesson_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="grouplessons" Relationship="Self.FK_GroupLessons_GroupLesson_Lesson_Id" FromRole="lessons" ToRole="grouplessons" />
+          <NavigationProperty Name="marks" Relationship="Self.FK_Marks_Mark_Lesson_Id" FromRole="lessons" ToRole="marks" />
+        </EntityType>
+        <EntityType Name="mark">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mark_student_id" Type="Int32" Nullable="false" />
+          <Property Name="mark_lesson_id" Type="Int32" Nullable="false" />
+          <Property Name="mark_value" Type="Int32" Nullable="false" />
+          <Property Name="mark_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="lesson" Relationship="Self.FK_Marks_Mark_Lesson_Id" FromRole="marks" ToRole="lessons" />
+          <NavigationProperty Name="student" Relationship="Self.FK_Marks_Mark_Student_Id" FromRole="marks" ToRole="students" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_group_id" Type="Int32" />
+          <Property Name="student_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="student_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="student_secondname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="student_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="group" Relationship="Self.FK_Students_Student_Group_Id" FromRole="students" ToRole="groups" />
+          <NavigationProperty Name="marks" Relationship="Self.FK_Marks_Mark_Student_Id" FromRole="students" ToRole="marks" />
+        </EntityType>
+        <Association Name="FK_GroupLessons_GroupLesson_Group_Id">
+          <End Role="groups" Type="Self.group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="grouplessons" Type="Self.grouplesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="grouplessons">
+              <PropertyRef Name="grouplesson_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupLessons_GroupLesson_Lesson_Id">
+          <End Role="lessons" Type="Self.lesson" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="grouplessons" Type="Self.grouplesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lessons">
+              <PropertyRef Name="lesson_id" />
+            </Principal>
+            <Dependent Role="grouplessons">
+              <PropertyRef Name="grouplesson_lesson_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Student_Group_Id">
+          <End Role="groups" Type="Self.group" Multiplicity="0..1" />
+          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="student_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks_Mark_Lesson_Id">
+          <End Role="lessons" Type="Self.lesson" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="marks" Type="Self.mark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lessons">
+              <PropertyRef Name="lesson_id" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="mark_lesson_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks_Mark_Student_Id">
+          <End Role="students" Type="Self.student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="marks" Type="Self.mark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="marks">
+              <PropertyRef Name="mark_student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EStudentGradeBookDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="grouplessons" EntityType="Self.grouplesson" />
+          <EntitySet Name="groups" EntityType="Self.group" />
+          <EntitySet Name="lessons" EntityType="Self.lesson" />
+          <EntitySet Name="marks" EntityType="Self.mark" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <AssociationSet Name="FK_GroupLessons_GroupLesson_Group_Id" Association="Self.FK_GroupLessons_GroupLesson_Group_Id">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="grouplessons" EntitySet="grouplessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupLessons_GroupLesson_Lesson_Id" Association="Self.FK_GroupLessons_GroupLesson_Lesson_Id">
+            <End Role="lessons" EntitySet="lessons" />
+            <End Role="grouplessons" EntitySet="grouplessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Student_Group_Id" Association="Self.FK_Students_Student_Group_Id">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks_Mark_Lesson_Id" Association="Self.FK_Marks_Mark_Lesson_Id">
+            <End Role="lessons" EntitySet="lessons" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks_Mark_Student_Id" Association="Self.FK_Marks_Mark_Student_Id">
+            <End Role="students" EntitySet="students" />
+            <End Role="marks" EntitySet="marks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EStudentGradeBookDBModelContainer" CdmEntityContainer="EStudentGradeBookDBContext">
+          <EntitySetMapping Name="grouplessons">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.grouplesson">
+              <MappingFragment StoreEntitySet="grouplessons">
+                <ScalarProperty Name="grouplesson_id" ColumnName="grouplesson_id" />
+                <ScalarProperty Name="grouplesson_group_id" ColumnName="grouplesson_group_id" />
+                <ScalarProperty Name="grouplesson_lesson_id" ColumnName="grouplesson_lesson_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.group">
+              <MappingFragment StoreEntitySet="groups">
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="group_cource" ColumnName="group_cource" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lessons">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.lesson">
+              <MappingFragment StoreEntitySet="lessons">
+                <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
+                <ScalarProperty Name="lesson_name" ColumnName="lesson_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marks">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.mark">
+              <MappingFragment StoreEntitySet="marks">
+                <ScalarProperty Name="mark_id" ColumnName="mark_id" />
+                <ScalarProperty Name="mark_student_id" ColumnName="mark_student_id" />
+                <ScalarProperty Name="mark_lesson_id" ColumnName="mark_lesson_id" />
+                <ScalarProperty Name="mark_value" ColumnName="mark_value" />
+                <ScalarProperty Name="mark_date" ColumnName="mark_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.student">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="student_group_id" ColumnName="student_group_id" />
+                <ScalarProperty Name="student_name" ColumnName="student_name" />
+                <ScalarProperty Name="student_surname" ColumnName="student_surname" />
+                <ScalarProperty Name="student_secondname" ColumnName="student_secondname" />
+                <ScalarProperty Name="student_email" ColumnName="student_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
