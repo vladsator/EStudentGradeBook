@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EStudentGradeBook_BLL", "ES
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EStudentGradeBook_DAL", "EStudentGradeBook_DAL\EStudentGradeBook_DAL.csproj", "{9A44B3AE-BE82-4692-B426-F47E46A4BF2F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{211916D0-32E0-4E65-92C0-969EDCF63B4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
