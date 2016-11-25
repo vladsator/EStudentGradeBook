@@ -12,7 +12,7 @@ namespace EStudentGradeBook_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class mark
+    public partial class Mark
     {
         public int mark_id { get; set; }
         public int mark_student_id { get; set; }
@@ -20,7 +20,7 @@ namespace EStudentGradeBook_DAL
         public int mark_value { get; set; }
         public Nullable<System.DateTime> mark_date { get; set; }
     
-        public virtual lesson lesson { get; set; }
-        public virtual student student { get; set; }
+        public virtual Lesson lesson { get; set; }
+        public virtual Student student { get; set; }
     }
 }

@@ -28,9 +28,9 @@ namespace EStudentGradeBook_DAL.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SATOR-PC\\SQLEXPRESS;Initial Catalog=EStudentGradeBookDB;Integrated Se" +
             "curity=True")]
-        public string DB_model {
+        public string DB_connect {
             get {
-                return ((string)(this["DB_model"]));
+                return ((string)(this["DB_connect"]));
             }
         }
     }

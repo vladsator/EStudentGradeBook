@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EStudentGradeBookDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище EStudentGradeBookDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="grouplessons">
           <Key>
             <PropertyRef Name="grouplesson_id" />
@@ -143,12 +143,11 @@
             <End Role="students" EntitySet="students" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EStudentGradeBookDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="grouplesson">
+        <EntityType Name="Grouplesson">
           <Key>
             <PropertyRef Name="grouplesson_id" />
           </Key>
@@ -158,7 +157,7 @@
           <NavigationProperty Name="group" Relationship="Self.FK_GroupLessons_GroupLesson_Group_Id" FromRole="grouplessons" ToRole="groups" />
           <NavigationProperty Name="lesson" Relationship="Self.FK_GroupLessons_GroupLesson_Lesson_Id" FromRole="grouplessons" ToRole="lessons" />
         </EntityType>
-        <EntityType Name="group">
+        <EntityType Name="Group">
           <Key>
             <PropertyRef Name="group_id" />
           </Key>
@@ -167,7 +166,7 @@
           <NavigationProperty Name="grouplessons" Relationship="Self.FK_GroupLessons_GroupLesson_Group_Id" FromRole="groups" ToRole="grouplessons" />
           <NavigationProperty Name="students" Relationship="Self.FK_Students_Student_Group_Id" FromRole="groups" ToRole="students" />
         </EntityType>
-        <EntityType Name="lesson">
+        <EntityType Name="Lesson">
           <Key>
             <PropertyRef Name="lesson_id" />
           </Key>
@@ -176,7 +175,7 @@
           <NavigationProperty Name="grouplessons" Relationship="Self.FK_GroupLessons_GroupLesson_Lesson_Id" FromRole="lessons" ToRole="grouplessons" />
           <NavigationProperty Name="marks" Relationship="Self.FK_Marks_Mark_Lesson_Id" FromRole="lessons" ToRole="marks" />
         </EntityType>
-        <EntityType Name="mark">
+        <EntityType Name="Mark">
           <Key>
             <PropertyRef Name="mark_id" />
           </Key>
@@ -188,7 +187,7 @@
           <NavigationProperty Name="lesson" Relationship="Self.FK_Marks_Mark_Lesson_Id" FromRole="marks" ToRole="lessons" />
           <NavigationProperty Name="student" Relationship="Self.FK_Marks_Mark_Student_Id" FromRole="marks" ToRole="students" />
         </EntityType>
-        <EntityType Name="student">
+        <EntityType Name="Student">
           <Key>
             <PropertyRef Name="student_id" />
           </Key>
@@ -202,10 +201,10 @@
           <NavigationProperty Name="marks" Relationship="Self.FK_Marks_Mark_Student_Id" FromRole="students" ToRole="marks" />
         </EntityType>
         <Association Name="FK_GroupLessons_GroupLesson_Group_Id">
-          <End Role="groups" Type="Self.group" Multiplicity="1">
+          <End Role="groups" Type="EStudentGradeBookDBModel.Group" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="grouplessons" Type="Self.grouplesson" Multiplicity="*" />
+          <End Role="grouplessons" Type="EStudentGradeBookDBModel.Grouplesson" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="groups">
               <PropertyRef Name="group_id" />
@@ -216,10 +215,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GroupLessons_GroupLesson_Lesson_Id">
-          <End Role="lessons" Type="Self.lesson" Multiplicity="1">
+          <End Role="lessons" Type="EStudentGradeBookDBModel.Lesson" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="grouplessons" Type="Self.grouplesson" Multiplicity="*" />
+          <End Role="grouplessons" Type="EStudentGradeBookDBModel.Grouplesson" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="lessons">
               <PropertyRef Name="lesson_id" />
@@ -230,8 +229,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Student_Group_Id">
-          <End Role="groups" Type="Self.group" Multiplicity="0..1" />
-          <End Role="students" Type="Self.student" Multiplicity="*" />
+          <End Role="groups" Type="EStudentGradeBookDBModel.Group" Multiplicity="0..1" />
+          <End Role="students" Type="EStudentGradeBookDBModel.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="groups">
               <PropertyRef Name="group_id" />
@@ -242,10 +241,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Marks_Mark_Lesson_Id">
-          <End Role="lessons" Type="Self.lesson" Multiplicity="1">
+          <End Role="lessons" Type="EStudentGradeBookDBModel.Lesson" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="marks" Type="Self.mark" Multiplicity="*" />
+          <End Role="marks" Type="EStudentGradeBookDBModel.Mark" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="lessons">
               <PropertyRef Name="lesson_id" />
@@ -256,10 +255,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Marks_Mark_Student_Id">
-          <End Role="students" Type="Self.student" Multiplicity="1">
+          <End Role="students" Type="EStudentGradeBookDBModel.Student" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="marks" Type="Self.mark" Multiplicity="*" />
+          <End Role="marks" Type="EStudentGradeBookDBModel.Mark" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="students">
               <PropertyRef Name="student_id" />
@@ -270,30 +269,30 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EStudentGradeBookDBContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="grouplessons" EntityType="Self.grouplesson" />
-          <EntitySet Name="groups" EntityType="Self.group" />
-          <EntitySet Name="lessons" EntityType="Self.lesson" />
-          <EntitySet Name="marks" EntityType="Self.mark" />
-          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="Grouplessons" EntityType="EStudentGradeBookDBModel.Grouplesson" />
+          <EntitySet Name="Groups" EntityType="EStudentGradeBookDBModel.Group" />
+          <EntitySet Name="Lessons" EntityType="EStudentGradeBookDBModel.Lesson" />
+          <EntitySet Name="Marks" EntityType="EStudentGradeBookDBModel.Mark" />
+          <EntitySet Name="Students" EntityType="EStudentGradeBookDBModel.Student" />
           <AssociationSet Name="FK_GroupLessons_GroupLesson_Group_Id" Association="Self.FK_GroupLessons_GroupLesson_Group_Id">
-            <End Role="groups" EntitySet="groups" />
-            <End Role="grouplessons" EntitySet="grouplessons" />
+            <End Role="groups" EntitySet="Groups" />
+            <End Role="grouplessons" EntitySet="Grouplessons" />
           </AssociationSet>
           <AssociationSet Name="FK_GroupLessons_GroupLesson_Lesson_Id" Association="Self.FK_GroupLessons_GroupLesson_Lesson_Id">
-            <End Role="lessons" EntitySet="lessons" />
-            <End Role="grouplessons" EntitySet="grouplessons" />
+            <End Role="lessons" EntitySet="Lessons" />
+            <End Role="grouplessons" EntitySet="Grouplessons" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_Student_Group_Id" Association="Self.FK_Students_Student_Group_Id">
-            <End Role="groups" EntitySet="groups" />
-            <End Role="students" EntitySet="students" />
+            <End Role="groups" EntitySet="Groups" />
+            <End Role="students" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="FK_Marks_Mark_Lesson_Id" Association="Self.FK_Marks_Mark_Lesson_Id">
-            <End Role="lessons" EntitySet="lessons" />
-            <End Role="marks" EntitySet="marks" />
+            <End Role="lessons" EntitySet="Lessons" />
+            <End Role="marks" EntitySet="Marks" />
           </AssociationSet>
           <AssociationSet Name="FK_Marks_Mark_Student_Id" Association="Self.FK_Marks_Mark_Student_Id">
-            <End Role="students" EntitySet="students" />
-            <End Role="marks" EntitySet="marks" />
+            <End Role="students" EntitySet="Students" />
+            <End Role="marks" EntitySet="Marks" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -302,8 +301,8 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище EStudentGradeBookDBModelContainer" CdmEntityContainer="EStudentGradeBookDBContext">
-          <EntitySetMapping Name="grouplessons">
-            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.grouplesson">
+          <EntitySetMapping Name="Grouplessons">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.Grouplesson">
               <MappingFragment StoreEntitySet="grouplessons">
                 <ScalarProperty Name="grouplesson_id" ColumnName="grouplesson_id" />
                 <ScalarProperty Name="grouplesson_group_id" ColumnName="grouplesson_group_id" />
@@ -311,24 +310,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="groups">
-            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.group">
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.Group">
               <MappingFragment StoreEntitySet="groups">
                 <ScalarProperty Name="group_id" ColumnName="group_id" />
                 <ScalarProperty Name="group_cource" ColumnName="group_cource" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="lessons">
-            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.lesson">
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.Lesson">
               <MappingFragment StoreEntitySet="lessons">
                 <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
                 <ScalarProperty Name="lesson_name" ColumnName="lesson_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="marks">
-            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.mark">
+          <EntitySetMapping Name="Marks">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.Mark">
               <MappingFragment StoreEntitySet="marks">
                 <ScalarProperty Name="mark_id" ColumnName="mark_id" />
                 <ScalarProperty Name="mark_student_id" ColumnName="mark_student_id" />
@@ -338,8 +337,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="students">
-            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.student">
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="EStudentGradeBookDBModel.Student">
               <MappingFragment StoreEntitySet="students">
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="student_group_id" ColumnName="student_group_id" />

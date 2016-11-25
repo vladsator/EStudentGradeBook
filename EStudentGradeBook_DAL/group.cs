@@ -12,21 +12,21 @@ namespace EStudentGradeBook_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class group
+    public partial class Group
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public group()
+        public Group()
         {
-            this.grouplessons = new HashSet<grouplesson>();
-            this.students = new HashSet<student>();
+            this.grouplessons = new HashSet<Grouplesson>();
+            this.students = new HashSet<Student>();
         }
     
         public int group_id { get; set; }
         public int group_cource { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<grouplesson> grouplessons { get; set; }
+        public virtual ICollection<Grouplesson> grouplessons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<student> students { get; set; }
+        public virtual ICollection<Student> students { get; set; }
     }
 }

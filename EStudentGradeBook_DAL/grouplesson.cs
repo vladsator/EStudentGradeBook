@@ -12,13 +12,13 @@ namespace EStudentGradeBook_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class grouplesson
+    public partial class Grouplesson
     {
         public int grouplesson_id { get; set; }
         public int grouplesson_group_id { get; set; }
         public int grouplesson_lesson_id { get; set; }
     
-        public virtual group group { get; set; }
-        public virtual lesson lesson { get; set; }
+        public virtual Group group { get; set; }
+        public virtual Lesson lesson { get; set; }
     }
 }

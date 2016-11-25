@@ -25,10 +25,10 @@ namespace EStudentGradeBook_DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<grouplesson> grouplessons { get; set; }
-        public virtual DbSet<group> groups { get; set; }
-        public virtual DbSet<lesson> lessons { get; set; }
-        public virtual DbSet<mark> marks { get; set; }
-        public virtual DbSet<student> students { get; set; }
+        public virtual DbSet<Grouplesson> Grouplessons { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Lesson> Lessons { get; set; }
+        public virtual DbSet<Mark> Marks { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
     }
 }
