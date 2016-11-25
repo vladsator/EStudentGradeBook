@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EStudentGradeBook_BLL
 {
-    abstract class DataManager
+    public abstract class DataManager
     {
         public abstract void Add(object obj);
 
@@ -15,7 +15,7 @@ namespace EStudentGradeBook_BLL
 
         public abstract void Update(object destobj, object sourceobj);
 
-        public abstract object DataMapper(object obj);
+        protected abstract object DataMapper(object obj);
 
         public abstract object GetDataList();
     }

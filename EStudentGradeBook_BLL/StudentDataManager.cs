@@ -9,7 +9,7 @@ using AutoMapper;
 
 namespace EStudentGradeBook_BLL
 {
-    class StudentDataManager : DataManager
+    public class StudentDataManager : DataManager
     {
         public override void Add(object obj)
         {
@@ -29,7 +29,7 @@ namespace EStudentGradeBook_BLL
             throw new NotImplementedException();
         }
 
-        public override object DataMapper(object obj)
+        protected override object DataMapper(object obj)
         {
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<StudentDTO, Student>();
@@ -41,7 +41,17 @@ namespace EStudentGradeBook_BLL
         public override object GetDataList()
         {
             var context = new EStudentGradeBookDBContext();
-            return context.Students.ToList();
+            var query =  from s in context.Students.ToList()
+                select new StudentDTO()
+                {
+                    student_id = s.student_id ,
+                    student_email = s.student_email,
+                    student_group_id = s.student_group_id,
+                    student_name = s.student_name,
+                    student_surname = s.student_surname,
+                    student_secondname = s.student_secondname
+                };
+            return query.ToList();
         }
     }
 }
