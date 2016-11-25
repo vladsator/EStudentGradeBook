@@ -11,6 +11,10 @@ namespace EStudentGradeBook_BLL
     {
         public abstract void Add(object obj);
 
+        public abstract void Remove(object obj);
+
+        public abstract void Update(object destobj, object sourceobj);
+
         public abstract object DataMapper(object obj);
     }
 }

@@ -19,6 +19,16 @@ namespace EStudentGradeBook_BLL
             context.SaveChanges();
         }
 
+        public override void Remove(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(object destobj, object sourceobj)
+        {
+            throw new NotImplementedException();
+        }
+
         public override object DataMapper(object obj)
         {
             var config = new MapperConfiguration(cfg => {
