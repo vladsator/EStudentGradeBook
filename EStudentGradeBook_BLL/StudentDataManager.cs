@@ -13,8 +13,8 @@ namespace EStudentGradeBook_BLL
     {
         public override void Add(object obj)
         {
-            Student student = DataMapper(obj as StudentDTO) as Student;
-            EStudentGradeBookDBContext context = new EStudentGradeBookDBContext();
+            var student = DataMapper(obj as StudentDTO) as Student;
+            var context = new EStudentGradeBookDBContext();
             context.Students.Add(student);
             context.SaveChanges();
         }

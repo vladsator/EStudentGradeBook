@@ -1,6 +1,6 @@
 ﻿namespace EStudentGradeBook_PL
 {
-    partial class Form1
+    partial class StudentManager
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -37,12 +37,16 @@
             // 
             // dataGridView_students
             // 
+            this.dataGridView_students.AllowUserToAddRows = false;
+            this.dataGridView_students.AllowUserToDeleteRows = false;
             this.dataGridView_students.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_students.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_students.Location = new System.Drawing.Point(2, 1);
+            this.dataGridView_students.MultiSelect = false;
             this.dataGridView_students.Name = "dataGridView_students";
+            this.dataGridView_students.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_students.Size = new System.Drawing.Size(652, 429);
             this.dataGridView_students.TabIndex = 0;
             // 
@@ -55,6 +59,7 @@
             this.button_addstudent.TabIndex = 1;
             this.button_addstudent.Text = "Add";
             this.button_addstudent.UseVisualStyleBackColor = true;
+            this.button_addstudent.Click += new System.EventHandler(this.button_addstudent_Click);
             // 
             // button_removestudent
             // 
@@ -76,7 +81,7 @@
             this.button_update.Text = "Update";
             this.button_update.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // StudentManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,9 +90,10 @@
             this.Controls.Add(this.button_removestudent);
             this.Controls.Add(this.button_addstudent);
             this.Controls.Add(this.dataGridView_students);
-            this.Name = "Form1";
+            this.Name = "StudentManager";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Activated += new System.EventHandler(this.StudentManager_Activated);
+            this.Load += new System.EventHandler(this.StudentManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_students)).EndInit();
             this.ResumeLayout(false);
 

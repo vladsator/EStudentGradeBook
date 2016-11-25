@@ -11,17 +11,16 @@ using EStudentGradeBook_BLL;
 
 namespace EStudentGradeBook_PL
 {
-    public partial class Form1 : Form
+    public partial class StudentManager : Form
     {
-        public Form1()
+        public StudentManager()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void StudentManager_Load(object sender, EventArgs e)
         {
-            var StudentDM = new StudentDataManager();
-            dataGridView_students.AutoSize = AutoSize;
+            dataGridView_students.RowHeadersVisible = false;
             dataGridView_students.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "student_id",
@@ -59,8 +58,23 @@ namespace EStudentGradeBook_PL
                 HeaderText = "Email",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             });
+            var StudentDM = new StudentDataManager();
             dataGridView_students.DataSource = StudentDM.GetDataList();
+            dataGridView_students.AutoSize = true;
+            //dataGridView_students.Size = AutoSizeMode.GrowAndShrink;
+            this.AutoSize = AutoSize;
+        }
 
+        private void button_addstudent_Click(object sender, EventArgs e)
+        {
+            var newForm = new AddStudent();
+            newForm.Show();
+        }
+
+        private void StudentManager_Activated(object sender, EventArgs e)
+        {
+            var StudentDM = new StudentDataManager();
+            dataGridView_students.DataSource = StudentDM.GetDataList();
         }
     }
 }
