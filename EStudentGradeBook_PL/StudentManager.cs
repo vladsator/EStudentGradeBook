@@ -38,19 +38,19 @@ namespace EStudentGradeBook_PL
             {
                 DataPropertyName = "student_surname",
                 HeaderText = "Surname",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
             dataGridView_students.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "student_name",
                 HeaderText = "Name",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
             dataGridView_students.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "student_secondname",
                 HeaderText = "Secondname",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill                
             });
             dataGridView_students.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -60,9 +60,6 @@ namespace EStudentGradeBook_PL
             });
             var StudentDM = new StudentDataManager();
             dataGridView_students.DataSource = StudentDM.GetDataList();
-            dataGridView_students.AutoSize = true;
-            //dataGridView_students.Size = AutoSizeMode.GrowAndShrink;
-            this.AutoSize = AutoSize;
         }
 
         private void button_addstudent_Click(object sender, EventArgs e)
