@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\GroupDTO.cs" />
+    <Compile Include="DTO\GrouplessonDTO.cs" />
+    <Compile Include="DTO\LessonDTO.cs" />
+    <Compile Include="DTO\MarkDTO.cs" />
+    <Compile Include="DTO\StudentDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
