@@ -16,5 +16,7 @@ namespace EStudentGradeBook_BLL
         public abstract void Update(object destobj, object sourceobj);
 
         public abstract object DataMapper(object obj);
+
+        public abstract object GetDataList();
     }
 }

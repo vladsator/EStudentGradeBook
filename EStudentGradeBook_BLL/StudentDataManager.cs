@@ -37,5 +37,11 @@ namespace EStudentGradeBook_BLL
             var mapper = config.CreateMapper();
             return mapper.Map<StudentDTO, Student>(obj as StudentDTO);
         }
+
+        public override object GetDataList()
+        {
+            var context = new EStudentGradeBookDBContext();
+            return context.Students.ToList();
+        }
     }
 }
