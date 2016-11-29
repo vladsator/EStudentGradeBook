@@ -90,6 +90,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EStudentGradeBook_BLL\EStudentGradeBook_BLL.csproj">
+      <Project>{ffb704ff-0b41-471d-9b1b-b141d7ba1cbd}</Project>
+      <Name>EStudentGradeBook_BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
