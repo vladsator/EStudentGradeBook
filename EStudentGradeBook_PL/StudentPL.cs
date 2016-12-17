@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EStudentGradeBook_BLL
+namespace EStudentGradeBook_PL
 {
-    public class StudentBLL
+    class StudentPL
     {
         public int student_id { get; set; }
         public int? student_group_id { get; set; }
@@ -15,12 +15,7 @@ namespace EStudentGradeBook_BLL
         public string student_secondname { get; set; }
         public string student_email { get; set; }
 
-        public StudentBLL()
-        {
-            
-        }
-
-        public StudentBLL(int? groupId, string name, string surname, string secondname, string email)
+        public StudentPL(int? groupId, string name, string surname, string secondname, string email)
         {
             student_group_id = groupId;
             student_name = name;

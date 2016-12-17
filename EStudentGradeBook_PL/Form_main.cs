@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EStudentGradeBook_DAL;
+using EStudentGradeBook_BLL;
 
 namespace EStudentGradeBook_PL
 {
@@ -31,8 +31,14 @@ namespace EStudentGradeBook_PL
 
         private void Form_main_Load(object sender, EventArgs e)
         {
-            StudentDataManager stdm = new StudentDataManager();
-            dataGridView_allinfo.DataSource = stdm.GetList();
+            StudentManager stdm = new StudentManager();
+            dataGridView_allinfo.DataSource = stdm.GetStudentList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StudentManager stdm = new StudentManager();
+            dataGridView_allinfo.DataSource = stdm.GetStudentList();
         }
     }
 }

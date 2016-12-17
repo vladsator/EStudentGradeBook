@@ -162,6 +162,7 @@
             this.button_add.TabIndex = 10;
             this.button_add.Text = "Add";
             this.button_add.UseVisualStyleBackColor = true;
+            this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
             // Form_Students
             // 
@@ -181,6 +182,7 @@
             this.Controls.Add(this.textBox_surname);
             this.Name = "Form_Students";
             this.Text = "Adding student";
+            this.Load += new System.EventHandler(this.Form_Students_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -65,6 +65,8 @@
     <Compile Include="Form_main.Designer.cs">
       <DependentUpon>Form_main.cs</DependentUpon>
     </Compile>
+    <Compile Include="OutpMapping.cs" />
+    <Compile Include="StudentPL.cs" />
     <Compile Include="Student\Form_Students.cs">
       <SubType>Form</SubType>
     </Compile>

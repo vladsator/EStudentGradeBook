@@ -53,10 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GroupBll.cs" />
+    <Compile Include="GroupManager.cs" />
     <Compile Include="InpMapping.cs" />
     <Compile Include="OutpMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentBLL.cs" />
+    <Compile Include="StudentManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

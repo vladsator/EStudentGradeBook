@@ -12,6 +12,7 @@ namespace EStudentGradeBook_BLL
     {
         public Student StudentMapper(StudentBLL student)
         {
+            Mapper.Initialize(cfg => cfg.CreateMap<StudentBLL, Student>());
             return Mapper.Map<StudentBLL, Student>(student);
         }
     }

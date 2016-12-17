@@ -38,6 +38,7 @@
             this.button_search = new System.Windows.Forms.Button();
             this.label_group = new System.Windows.Forms.Label();
             this.label_name = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_allinfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,11 +144,22 @@
             this.label_name.TabIndex = 11;
             this.label_name.Text = "Student name:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(591, 212);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 470);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label_name);
             this.Controls.Add(this.label_group);
             this.Controls.Add(this.button_search);
@@ -179,6 +191,7 @@
         private System.Windows.Forms.Button button_search;
         private System.Windows.Forms.Label label_group;
         private System.Windows.Forms.Label label_name;
+        private System.Windows.Forms.Button button1;
     }
 }
 
