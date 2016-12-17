@@ -32,9 +32,24 @@ namespace EStudentGradeBook_DAL
 
         }
 
-        public override List<Student> GetList()
+        public override object GetList()
         {
-            return _context.Students.ToList();
+            EStudentGradeBookDBContext context = new EStudentGradeBookDBContext();
+            var query = from s in context.Students
+                join g in context.Groups on s.student_group_id equals g.group_id into joined
+                from j in joined.DefaultIfEmpty()
+                select new
+                {
+                    GroupId = j.group_id,
+                    Cource = j.group_cource,
+                    StudentSurname = s.student_surname,
+                    StudentName = s.student_name,
+                    Patronymic = s.student_secondname,
+                    Email = s.student_email
+                };
+
+            
+            return query.ToList();
         }
     }
 }

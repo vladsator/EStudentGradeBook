@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EStudentGradeBook_DAL;
 
 namespace EStudentGradeBook_PL
 {
@@ -25,6 +27,12 @@ namespace EStudentGradeBook_PL
         private void button_addStudent_Click(object sender, EventArgs e)
         {
             new Form_Students().Show();
+        }
+
+        private void Form_main_Load(object sender, EventArgs e)
+        {
+            StudentDataManager stdm = new StudentDataManager();
+            dataGridView_allinfo.DataSource = stdm.GetList();
         }
     }
 }

@@ -131,6 +131,10 @@
       <Project>{ffb704ff-0b41-471d-9b1b-b141d7ba1cbd}</Project>
       <Name>EStudentGradeBook_BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EStudentGradeBook_DAL\EStudentGradeBook_DAL.csproj">
+      <Project>{1166f794-dccd-4263-8b04-59f442362068}</Project>
+      <Name>EStudentGradeBook_DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

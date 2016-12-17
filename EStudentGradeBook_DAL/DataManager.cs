@@ -11,7 +11,8 @@ namespace EStudentGradeBook_DAL
         public abstract void Add(T addObj);
         public abstract void Remove(T removeObj);
         public abstract void Update(T updateObj);
-        public abstract List<T> GetList();
+
+        public abstract object GetList();
 
     }
 }
