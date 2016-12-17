@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EStudentGradeBook_PL
 {
-    public partial class Form1 : Form
+    public partial class FormGroup : Form
     {
-        public Form1()
+        public FormGroup()
         {
             InitializeComponent();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EStudentGradeBook_DAL
 {
-    abstract class DataManager<T>
+    public abstract class DataManager<T>
     {
         public abstract void Add(T addObj);
         public abstract void Remove(T removeObj);

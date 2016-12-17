@@ -59,14 +59,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_main.Designer.cs">
+      <DependentUpon>Form_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Form_Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\Form_Students.Designer.cs">
+      <DependentUpon>Form_Students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\FormGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group\FormGroup.Designer.cs">
+      <DependentUpon>FormGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLessons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLessons.Designer.cs">
+      <DependentUpon>FormLessons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\Form_addGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group\Form_addGroup.Designer.cs">
+      <DependentUpon>Form_addGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_main.resx">
+      <DependentUpon>Form_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\Form_Students.resx">
+      <DependentUpon>Form_Students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\FormGroup.resx">
+      <DependentUpon>FormGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\Form_addGroup.resx">
+      <DependentUpon>Form_addGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

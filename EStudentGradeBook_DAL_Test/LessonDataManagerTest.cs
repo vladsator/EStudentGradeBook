@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EStudentGradeBook_DAL_Test
 {
-    public class Class1
+    class LessonDataManagerTest
     {
     }
 }

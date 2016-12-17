@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EStudentGradeBook_DAL
 {
-    class StudentDataManager : DataManager<Student>
+    public class StudentDataManager : DataManager<Student>
     {
         private readonly EStudentGradeBookDBContext _context = new EStudentGradeBookDBContext();
 
@@ -29,7 +29,6 @@ namespace EStudentGradeBook_DAL
             var student = _context.Students.FirstOrDefault(s => s.student_id == updateObj.student_id);
             student = updateObj;
             _context.SaveChanges();
-            throw new NotImplementedException();
 
         }
 
