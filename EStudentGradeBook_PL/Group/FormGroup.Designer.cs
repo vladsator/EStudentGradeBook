@@ -1,4 +1,4 @@
-﻿namespace EStudentGradeBook_PL
+﻿namespace EStudentGradeBook_PL.Group
 {
     partial class FormGroup
     {
@@ -55,6 +55,7 @@
             this.button_addGroup.TabIndex = 1;
             this.button_addGroup.Text = "Create group";
             this.button_addGroup.UseVisualStyleBackColor = true;
+            this.button_addGroup.Click += new System.EventHandler(this.button_addGroup_Click);
             // 
             // button_remove
             // 
@@ -85,6 +86,7 @@
             this.Controls.Add(this.dataGridView_groups);
             this.Name = "FormGroup";
             this.Text = "All group";
+            this.Load += new System.EventHandler(this.FormGroup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_groups)).EndInit();
             this.ResumeLayout(false);
 

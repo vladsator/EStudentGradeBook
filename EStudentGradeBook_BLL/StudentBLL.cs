@@ -8,7 +8,7 @@ namespace EStudentGradeBook_BLL
 {
     public class StudentBLL
     {
-        public int student_id { get; set; }
+        public int? student_id { get; set; }
         public int? student_group_id { get; set; }
         public string student_name { get; set; }
         public string student_surname { get; set; }

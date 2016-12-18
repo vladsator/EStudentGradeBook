@@ -9,11 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EStudentGradeBook_BLL;
+using EStudentGradeBook_PL.Group;
+using EStudentGradeBook_PL.Student;
 
 namespace EStudentGradeBook_PL
 {
     public partial class Form_main : Form
     {
+        StudentManager studentManager = new StudentManager();
+
         public Form_main()
         {
             InitializeComponent();
@@ -26,19 +30,17 @@ namespace EStudentGradeBook_PL
 
         private void button_addStudent_Click(object sender, EventArgs e)
         {
-            new Form_Students().Show();
+            new FormStudents().Show();
         }
 
         private void Form_main_Load(object sender, EventArgs e)
         {
-            StudentManager stdm = new StudentManager();
-            dataGridView_allinfo.DataSource = stdm.GetStudentList();
+            dataGridView_allinfo.DataSource = studentManager.GetStudentList();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            StudentManager stdm = new StudentManager();
-            dataGridView_allinfo.DataSource = stdm.GetStudentList();
+        {         
+            dataGridView_allinfo.DataSource = studentManager.GetStudentList();
         }
     }
 }

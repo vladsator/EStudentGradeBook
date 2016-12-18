@@ -9,11 +9,19 @@ namespace EStudentGradeBook_BLL
 {
     public class GroupManager
     {
+        static List<GroupBll> _groupList = new List<GroupBll>();
+        readonly GroupDataManager _groupManager = new GroupDataManager();
+        readonly InpMapping _inpMapper = new InpMapping();
+
+        public List<GroupBll> GetGroupList()
+        {            
+            _groupList = _inpMapper.GroupListMapper(_groupManager.GetList());
+            return _groupList;
+        }
+
         public List<int> GetAllGroupIds()
-        {
-            GroupDataManager dataManager = new GroupDataManager();
-            InpMapping mapper = new InpMapping();
-            var query = from g in mapper.GroupListMapper((List<Group>) dataManager.GetList())
+        {          
+            var query = from g in _groupList
                 select g.group_id;
             return query.ToList();
         }

@@ -23,7 +23,7 @@ namespace EStudentGradeBook_DAL
             throw new NotImplementedException();
         }
 
-        public override object GetList()
+        public override List<Group> GetList()
         {
             EStudentGradeBookDBContext context = new EStudentGradeBookDBContext();
             return context.Groups.ToList();

@@ -1,6 +1,6 @@
-﻿namespace EStudentGradeBook_PL
+﻿namespace EStudentGradeBook_PL.Student
 {
-    partial class Form_Students
+    partial class FormStudents
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,7 @@
             this.label_email = new System.Windows.Forms.Label();
             this.label_group = new System.Windows.Forms.Label();
             this.button_add = new System.Windows.Forms.Button();
+            this.label_error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_surname
@@ -85,6 +86,7 @@
             // 
             this.comboBox_groups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_groups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_groups.FormattingEnabled = true;
             this.comboBox_groups.Location = new System.Drawing.Point(75, 118);
             this.comboBox_groups.Name = "comboBox_groups";
@@ -164,11 +166,24 @@
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
-            // Form_Students
+            // label_error
+            // 
+            this.label_error.AutoSize = true;
+            this.label_error.BackColor = System.Drawing.Color.White;
+            this.label_error.ForeColor = System.Drawing.Color.Red;
+            this.label_error.Location = new System.Drawing.Point(116, 207);
+            this.label_error.Name = "label_error";
+            this.label_error.Size = new System.Drawing.Size(136, 13);
+            this.label_error.TabIndex = 11;
+            this.label_error.Text = "This email is already used!!!";
+            this.label_error.Visible = false;
+            // 
+            // FormStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 214);
+            this.ClientSize = new System.Drawing.Size(371, 229);
+            this.Controls.Add(this.label_error);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.label_group);
             this.Controls.Add(this.label_email);
@@ -180,7 +195,7 @@
             this.Controls.Add(this.textBox_patronymic);
             this.Controls.Add(this.textBox_name);
             this.Controls.Add(this.textBox_surname);
-            this.Name = "Form_Students";
+            this.Name = "FormStudents";
             this.Text = "Adding student";
             this.Load += new System.EventHandler(this.Form_Students_Load);
             this.ResumeLayout(false);
@@ -201,5 +216,6 @@
         private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.Label label_group;
         private System.Windows.Forms.Button button_add;
+        private System.Windows.Forms.Label label_error;
     }
 }

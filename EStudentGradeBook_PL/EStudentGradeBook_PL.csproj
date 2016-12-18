@@ -67,11 +67,11 @@
     </Compile>
     <Compile Include="OutpMapping.cs" />
     <Compile Include="StudentPL.cs" />
-    <Compile Include="Student\Form_Students.cs">
+    <Compile Include="Student\FormStudents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student\Form_Students.Designer.cs">
-      <DependentUpon>Form_Students.cs</DependentUpon>
+    <Compile Include="Student\FormStudents.Designer.cs">
+      <DependentUpon>FormStudents.cs</DependentUpon>
     </Compile>
     <Compile Include="Group\FormGroup.cs">
       <SubType>Form</SubType>
@@ -96,8 +96,8 @@
     <EmbeddedResource Include="Form_main.resx">
       <DependentUpon>Form_main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student\Form_Students.resx">
-      <DependentUpon>Form_Students.cs</DependentUpon>
+    <EmbeddedResource Include="Student\FormStudents.resx">
+      <DependentUpon>FormStudents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Group\FormGroup.resx">
       <DependentUpon>FormGroup.cs</DependentUpon>

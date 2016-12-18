@@ -9,17 +9,20 @@ namespace EStudentGradeBook_BLL
 {
     public class StudentManager
     {
+        static List<StudentBLL> _studentList = new List<StudentBLL>();
+        readonly StudentDataManager _studentDataManager = new StudentDataManager();
+        readonly OutpMapping _outMapper = new OutpMapping();
+        readonly InpMapping _inMaper = new InpMapping();
+
         public void AddStudent(StudentBLL student)
-        {
-            StudentDataManager dataManager = new StudentDataManager();
-            OutpMapping mapper = new OutpMapping();
-            dataManager.Add(mapper.StudentMapper(student));    
+        {                      
+            _studentDataManager.Add(_outMapper.StudentMapper(student));    
         }
 
-        public object GetStudentList()
+        public List<StudentBLL> GetStudentList()
         {
-            StudentDataManager dataManager = new StudentDataManager();
-            return dataManager.GetList();
+            _studentList = _inMaper.StudentListMapper(_studentDataManager.GetList());
+            return _studentList;
         }
     }
 }
