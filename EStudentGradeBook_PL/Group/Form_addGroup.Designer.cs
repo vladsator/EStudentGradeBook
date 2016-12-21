@@ -35,16 +35,16 @@
             this.tabControl_groupTabs = new System.Windows.Forms.TabControl();
             this.tabPage_groupStudents = new System.Windows.Forms.TabPage();
             this.tabPage_groupLessons = new System.Windows.Forms.TabPage();
-            this.groupBox_groupInfo = new System.Windows.Forms.GroupBox();
-            this.comboBox_cource = new System.Windows.Forms.ComboBox();
-            this.label_cource = new System.Windows.Forms.Label();
-            this.button_ok = new System.Windows.Forms.Button();
-            this.button_cancel = new System.Windows.Forms.Button();
-            this.button_apply = new System.Windows.Forms.Button();
             this.button_addAllLessons = new System.Windows.Forms.Button();
             this.listBox_thisGroupLessons = new System.Windows.Forms.ListBox();
             this.button_addSelectedLesson = new System.Windows.Forms.Button();
             this.listBox_allLessons = new System.Windows.Forms.ListBox();
+            this.groupBox_groupInfo = new System.Windows.Forms.GroupBox();
+            this.label_cource = new System.Windows.Forms.Label();
+            this.comboBox_cource = new System.Windows.Forms.ComboBox();
+            this.button_ok = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
+            this.button_apply = new System.Windows.Forms.Button();
             this.tabControl_groupTabs.SuspendLayout();
             this.tabPage_groupStudents.SuspendLayout();
             this.tabPage_groupLessons.SuspendLayout();
@@ -73,8 +73,9 @@
             this.button_addAllStudents.Name = "button_addAllStudents";
             this.button_addAllStudents.Size = new System.Drawing.Size(43, 45);
             this.button_addAllStudents.TabIndex = 3;
-            this.button_addAllStudents.Text = ">>";
+            this.button_addAllStudents.Text = "<";
             this.button_addAllStudents.UseVisualStyleBackColor = true;
+            this.button_addAllStudents.Click += new System.EventHandler(this.button_addAllStudents_Click);
             // 
             // button_addSelectedStudent
             // 
@@ -84,6 +85,7 @@
             this.button_addSelectedStudent.TabIndex = 2;
             this.button_addSelectedStudent.Text = ">";
             this.button_addSelectedStudent.UseVisualStyleBackColor = true;
+            this.button_addSelectedStudent.Click += new System.EventHandler(this.button_addSelectedStudent_Click);
             // 
             // tabControl_groupTabs
             // 
@@ -126,6 +128,40 @@
             this.tabPage_groupLessons.Text = "Lessons";
             this.tabPage_groupLessons.UseVisualStyleBackColor = true;
             // 
+            // button_addAllLessons
+            // 
+            this.button_addAllLessons.Location = new System.Drawing.Point(218, 232);
+            this.button_addAllLessons.Name = "button_addAllLessons";
+            this.button_addAllLessons.Size = new System.Drawing.Size(43, 45);
+            this.button_addAllLessons.TabIndex = 3;
+            this.button_addAllLessons.Text = ">>";
+            this.button_addAllLessons.UseVisualStyleBackColor = true;
+            // 
+            // listBox_thisGroupLessons
+            // 
+            this.listBox_thisGroupLessons.FormattingEnabled = true;
+            this.listBox_thisGroupLessons.Location = new System.Drawing.Point(267, 4);
+            this.listBox_thisGroupLessons.Name = "listBox_thisGroupLessons";
+            this.listBox_thisGroupLessons.Size = new System.Drawing.Size(206, 446);
+            this.listBox_thisGroupLessons.TabIndex = 4;
+            // 
+            // button_addSelectedLesson
+            // 
+            this.button_addSelectedLesson.Location = new System.Drawing.Point(218, 181);
+            this.button_addSelectedLesson.Name = "button_addSelectedLesson";
+            this.button_addSelectedLesson.Size = new System.Drawing.Size(43, 45);
+            this.button_addSelectedLesson.TabIndex = 2;
+            this.button_addSelectedLesson.Text = ">";
+            this.button_addSelectedLesson.UseVisualStyleBackColor = true;
+            // 
+            // listBox_allLessons
+            // 
+            this.listBox_allLessons.FormattingEnabled = true;
+            this.listBox_allLessons.Location = new System.Drawing.Point(6, 5);
+            this.listBox_allLessons.Name = "listBox_allLessons";
+            this.listBox_allLessons.Size = new System.Drawing.Size(206, 446);
+            this.listBox_allLessons.TabIndex = 1;
+            // 
             // groupBox_groupInfo
             // 
             this.groupBox_groupInfo.Controls.Add(this.label_cource);
@@ -137,14 +173,6 @@
             this.groupBox_groupInfo.TabStop = false;
             this.groupBox_groupInfo.Text = "Group info";
             // 
-            // comboBox_cource
-            // 
-            this.comboBox_cource.FormattingEnabled = true;
-            this.comboBox_cource.Location = new System.Drawing.Point(64, 19);
-            this.comboBox_cource.Name = "comboBox_cource";
-            this.comboBox_cource.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_cource.TabIndex = 6;
-            // 
             // label_cource
             // 
             this.label_cource.AutoSize = true;
@@ -153,6 +181,14 @@
             this.label_cource.Size = new System.Drawing.Size(44, 13);
             this.label_cource.TabIndex = 8;
             this.label_cource.Text = "Cource:";
+            // 
+            // comboBox_cource
+            // 
+            this.comboBox_cource.FormattingEnabled = true;
+            this.comboBox_cource.Location = new System.Drawing.Point(64, 19);
+            this.comboBox_cource.Name = "comboBox_cource";
+            this.comboBox_cource.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_cource.TabIndex = 6;
             // 
             // button_ok
             // 
@@ -190,40 +226,6 @@
             this.button_apply.Text = "Apply";
             this.button_apply.UseVisualStyleBackColor = true;
             // 
-            // button_addAllLessons
-            // 
-            this.button_addAllLessons.Location = new System.Drawing.Point(218, 232);
-            this.button_addAllLessons.Name = "button_addAllLessons";
-            this.button_addAllLessons.Size = new System.Drawing.Size(43, 45);
-            this.button_addAllLessons.TabIndex = 3;
-            this.button_addAllLessons.Text = ">>";
-            this.button_addAllLessons.UseVisualStyleBackColor = true;
-            // 
-            // listBox_thisGroupLessons
-            // 
-            this.listBox_thisGroupLessons.FormattingEnabled = true;
-            this.listBox_thisGroupLessons.Location = new System.Drawing.Point(267, 4);
-            this.listBox_thisGroupLessons.Name = "listBox_thisGroupLessons";
-            this.listBox_thisGroupLessons.Size = new System.Drawing.Size(206, 446);
-            this.listBox_thisGroupLessons.TabIndex = 4;
-            // 
-            // button_addSelectedLesson
-            // 
-            this.button_addSelectedLesson.Location = new System.Drawing.Point(218, 181);
-            this.button_addSelectedLesson.Name = "button_addSelectedLesson";
-            this.button_addSelectedLesson.Size = new System.Drawing.Size(43, 45);
-            this.button_addSelectedLesson.TabIndex = 2;
-            this.button_addSelectedLesson.Text = ">";
-            this.button_addSelectedLesson.UseVisualStyleBackColor = true;
-            // 
-            // listBox_allLessons
-            // 
-            this.listBox_allLessons.FormattingEnabled = true;
-            this.listBox_allLessons.Location = new System.Drawing.Point(6, 5);
-            this.listBox_allLessons.Name = "listBox_allLessons";
-            this.listBox_allLessons.Size = new System.Drawing.Size(206, 446);
-            this.listBox_allLessons.TabIndex = 1;
-            // 
             // Form_addGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +240,7 @@
             this.Controls.Add(this.tabControl_groupTabs);
             this.Name = "Form_addGroup";
             this.Text = "Adding group";
+            this.Load += new System.EventHandler(this.Form_addGroup_Load);
             this.tabControl_groupTabs.ResumeLayout(false);
             this.tabPage_groupStudents.ResumeLayout(false);
             this.tabPage_groupLessons.ResumeLayout(false);

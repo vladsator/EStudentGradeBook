@@ -23,5 +23,15 @@ namespace EStudentGradeBook_PL
             student_secondname = secondname;
             student_email = email;
         }
+
+        public StudentPL()
+        {
+            
+        }
+
+        public override string ToString()
+        {
+            return $"{student_surname} {student_name} {student_secondname}";
+        }
     }
 }
