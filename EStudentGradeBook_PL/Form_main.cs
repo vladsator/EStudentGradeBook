@@ -42,5 +42,10 @@ namespace EStudentGradeBook_PL
         {         
             dataGridView_allinfo.DataSource = studentManager.GetStudentList();
         }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            dataGridView_allinfo.DataSource = studentManager.FilterStudent(comboBox_groups.Text, textBox_name.Text);
+        }
     }
 }

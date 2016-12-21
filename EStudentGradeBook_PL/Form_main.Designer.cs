@@ -123,6 +123,7 @@
             this.button_search.TabIndex = 8;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
             // label_group
             // 
@@ -146,11 +147,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(591, 212);
+            this.button1.Location = new System.Drawing.Point(582, 212);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(150, 23);
             this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
+            this.button1.Text = "Update table";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

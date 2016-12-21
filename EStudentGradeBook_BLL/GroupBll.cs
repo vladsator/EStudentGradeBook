@@ -11,6 +11,8 @@ namespace EStudentGradeBook_BLL
         public int group_id { get; set; }
         public int group_cource { get; set; }
 
+        public List<StudentBLL> students { get; set; }
+
         public GroupBll()
         {
             

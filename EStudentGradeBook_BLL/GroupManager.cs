@@ -12,6 +12,13 @@ namespace EStudentGradeBook_BLL
         static List<GroupBll> _groupList = new List<GroupBll>();
         readonly GroupDataManager _groupManager = new GroupDataManager();
         readonly InpMapping _inpMapper = new InpMapping();
+        readonly OutpMapping _outpMapper = new OutpMapping();
+
+
+        public void AddGroup(GroupBll group)
+        {
+            _groupManager.Add(_outpMapper.GroupMapper(group));        
+        }
 
         public List<GroupBll> GetGroupList()
         {            

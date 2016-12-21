@@ -8,14 +8,18 @@ namespace EStudentGradeBook_DAL
 {
     public class GroupDataManager : DataManager<Group>
     {
+        EStudentGradeBookDBContext context = new EStudentGradeBookDBContext();
+
         public override void Add(Group addObj)
         {
-            throw new NotImplementedException();
+            context.Groups.Add(addObj);
+            context.SaveChanges();
         }
 
         public override void Remove(Group removeObj)
         {
-            throw new NotImplementedException();
+            context.Groups.Remove(removeObj);
+            context.SaveChanges();
         }
 
         public override void Update(Group updateObj)

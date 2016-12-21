@@ -17,16 +17,16 @@ namespace EStudentGradeBook_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Group()
         {
-            this.grouplessons = new HashSet<Grouplesson>();
-            this.students = new HashSet<Student>();
+            this.grouplessons = new List<Grouplesson>();
+            this.students = new List<Student>();
         }
     
         public int group_id { get; set; }
         public int group_cource { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Grouplesson> grouplessons { get; set; }
+        public virtual List<Grouplesson> grouplessons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> students { get; set; }
+        public virtual List<Student> students { get; set; }
     }
 }

@@ -24,5 +24,12 @@ namespace EStudentGradeBook_BLL
             _studentList = _inMaper.StudentListMapper(_studentDataManager.GetList());
             return _studentList;
         }
+
+        public List<StudentBLL> FilterStudent(string groupId, string name)
+        {
+            return (from s in _studentList
+                where s.student_group_id == int.Parse(groupId)
+                select s).ToList();
+        }
     }
 }

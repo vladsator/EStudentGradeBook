@@ -25,12 +25,23 @@ namespace EStudentGradeBook_BLL
 
         public List<GroupBll> GroupListMapper(List<Group> groups)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Group, GroupBll>());
-            List<GroupBll> groupsBll = new List<GroupBll>();
+            //Mapper.Initialize(cfg => cfg.CreateMap<Group, GroupBll>().ForMember(dest => dest.students, opt => opt.MapFrom(src => StudentListMapper(src.students))));
+            //List<GroupBll> groupsBll = new List<GroupBll>();
 
+            //foreach (var g in groups)
+            //{
+            //    groupsBll.Add(Mapper.Map<Group, GroupBll>(g));
+            //}
+            List<GroupBll> groupsBll = new List<GroupBll>();
             foreach (var g in groups)
             {
-                groupsBll.Add(Mapper.Map<Group, GroupBll>(g));
+                GroupBll group = new GroupBll()
+                {
+                    group_cource = g.group_cource,
+                    group_id = g.group_id,
+                    students = StudentListMapper(g.students)
+                };
+                groupsBll.Add(group);
             }
             return groupsBll;
         }
