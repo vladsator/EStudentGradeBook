@@ -17,6 +17,7 @@ namespace EStudentGradeBook_PL
     public partial class Form_main : Form
     {
         StudentManager studentManager = new StudentManager();
+        readonly GroupManager _groupManager = new GroupManager();
 
         public Form_main()
         {
@@ -36,16 +37,38 @@ namespace EStudentGradeBook_PL
         private void Form_main_Load(object sender, EventArgs e)
         {
             dataGridView_allinfo.DataSource = studentManager.GetStudentList();
+
+            List<int> groupsId = _groupManager.GetAllGroupIds();
+            foreach (var g in groupsId)
+            {
+                comboBox_groups.Items.Add(g);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {         
+        {        
+             
             dataGridView_allinfo.DataSource = studentManager.GetStudentList();
         }
 
         private void button_search_Click(object sender, EventArgs e)
         {
-            dataGridView_allinfo.DataSource = studentManager.FilterStudent(comboBox_groups.Text, textBox_name.Text);
+            if (textBox_name.Text != "")
+            {
+                dataGridView_allinfo.DataSource = studentManager.FilterStudentByName(textBox_name.Text);
+            }
+            else
+            {
+                dataGridView_allinfo.DataSource = studentManager.GetStudentList();
+            }
+        }
+
+        private void comboBox_groups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((int) comboBox_groups.SelectedItem != 0)
+            {
+                dataGridView_allinfo.DataSource = studentManager.FilterStudent(comboBox_groups.Text);
+            }           
         }
     }
 }

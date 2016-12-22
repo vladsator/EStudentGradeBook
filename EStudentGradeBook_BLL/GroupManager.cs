@@ -14,6 +14,10 @@ namespace EStudentGradeBook_BLL
         readonly InpMapping _inpMapper = new InpMapping();
         readonly OutpMapping _outpMapper = new OutpMapping();
 
+        public GroupManager()
+        {
+            _groupList = _inpMapper.GroupListMapper(_groupManager.GetList());
+        }
 
         public void AddGroup(GroupBll group)
         {
@@ -22,7 +26,6 @@ namespace EStudentGradeBook_BLL
 
         public List<GroupBll> GetGroupList()
         {            
-            _groupList = _inpMapper.GroupListMapper(_groupManager.GetList());
             return _groupList;
         }
 

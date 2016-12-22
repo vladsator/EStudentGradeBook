@@ -105,6 +105,7 @@
             this.comboBox_groups.Name = "comboBox_groups";
             this.comboBox_groups.Size = new System.Drawing.Size(146, 21);
             this.comboBox_groups.TabIndex = 5;
+            this.comboBox_groups.SelectedIndexChanged += new System.EventHandler(this.comboBox_groups_SelectedIndexChanged);
             // 
             // textBox_name
             // 

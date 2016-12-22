@@ -25,11 +25,18 @@ namespace EStudentGradeBook_BLL
             return _studentList;
         }
 
-        public List<StudentBLL> FilterStudent(string groupId, string name)
+        public List<StudentBLL> FilterStudent(string groupId)
         {
             return (from s in _studentList
                 where s.student_group_id == int.Parse(groupId)
                 select s).ToList();
+        }
+
+        public List<StudentBLL> FilterStudentByName(string surname)
+        {
+            return (from s in _studentList
+                    where s.student_surname == surname
+                    select s).ToList();
         }
     }
 }
