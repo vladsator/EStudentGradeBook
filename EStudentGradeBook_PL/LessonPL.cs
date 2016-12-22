@@ -15,5 +15,10 @@ namespace EStudentGradeBook_BLL
         public int lesson_id { get; set; }
         public string lesson_name { get; set; }
 
+
+        public override string ToString()
+        {
+            return lesson_name;
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace EStudentGradeBook_PL
     {
         StudentManager studentManager = new StudentManager();
         readonly GroupManager _groupManager = new GroupManager();
+        readonly LessonManager _lessonManager = new LessonManager();
         InpMapping _inpMapper = new InpMapping();
 
         public MarkAdder()
@@ -25,11 +26,18 @@ namespace EStudentGradeBook_PL
         private void MarkAdder_Load(object sender, EventArgs e)
         {
             comboBox_group.DataSource = _groupManager.GetAllGroupIds();
+            comboBox_lesson.DataSource = _inpMapper.LessonListMapper(_lessonManager.GetLessonList());
         }
 
         private void comboBox_group_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox_student.DataSource = _inpMapper.StudentListMapper(studentManager.FilterStudent(comboBox_group.Text));
+
+        }
+
+        private void comboBox_lesson_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

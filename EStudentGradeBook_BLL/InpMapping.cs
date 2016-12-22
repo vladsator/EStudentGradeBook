@@ -45,5 +45,23 @@ namespace EStudentGradeBook_BLL
             }
             return groupsBll;
         }
+
+        public List<LessonBLL> LessonListMapper(List<Lesson> getList)
+        {
+            List<LessonBLL> studentsBll = new List<LessonBLL>();
+
+            foreach (var g in getList)
+            {
+                studentsBll.Add(LessonMapper(g));
+            }
+            return studentsBll;
+        }
+
+        public LessonBLL LessonMapper(Lesson lesson)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Lesson, LessonBLL>());
+            return Mapper.Map<Lesson, LessonBLL>(lesson);
+        }
+
     }
 }

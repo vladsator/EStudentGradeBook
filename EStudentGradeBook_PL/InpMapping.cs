@@ -26,5 +26,22 @@ namespace EStudentGradeBook_PL
             }
             return studentsPL;
         }
+
+        public List<LessonPL> LessonListMapper(List<LessonBLL> getList)
+        {
+            List<LessonPL> studentsBll = new List<LessonPL>();
+
+            foreach (var g in getList)
+            {
+                studentsBll.Add(LessonMapper(g));
+            }
+            return studentsBll;
+        }
+
+        public LessonPL LessonMapper(LessonBLL lesson)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<LessonBLL, LessonPL>());
+            return Mapper.Map<LessonBLL, LessonPL>(lesson);
+        }
     }
 }

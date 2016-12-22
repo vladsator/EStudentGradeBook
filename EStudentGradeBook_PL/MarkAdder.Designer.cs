@@ -72,6 +72,7 @@
             this.comboBox_lesson.Name = "comboBox_lesson";
             this.comboBox_lesson.Size = new System.Drawing.Size(121, 21);
             this.comboBox_lesson.TabIndex = 3;
+            this.comboBox_lesson.SelectedIndexChanged += new System.EventHandler(this.comboBox_lesson_SelectedIndexChanged);
             // 
             // textBox_value
             // 
