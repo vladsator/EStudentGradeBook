@@ -70,5 +70,10 @@ namespace EStudentGradeBook_PL
                 dataGridView_allinfo.DataSource = studentManager.FilterStudent(comboBox_groups.Text);
             }           
         }
+
+        private void button_markManager_Click(object sender, EventArgs e)
+        {
+            new MarkAdder().Show();
+        }
     }
 }

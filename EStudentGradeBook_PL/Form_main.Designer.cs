@@ -96,6 +96,7 @@
             this.button_markManager.TabIndex = 4;
             this.button_markManager.Text = "Mark manager";
             this.button_markManager.UseVisualStyleBackColor = true;
+            this.button_markManager.Click += new System.EventHandler(this.button_markManager_Click);
             // 
             // comboBox_groups
             // 

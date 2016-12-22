@@ -67,6 +67,13 @@
     </Compile>
     <Compile Include="GroupPL.cs" />
     <Compile Include="InpMapping.cs" />
+    <Compile Include="LessonPL.cs" />
+    <Compile Include="MarkAdder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarkAdder.Designer.cs">
+      <DependentUpon>MarkAdder.cs</DependentUpon>
+    </Compile>
     <Compile Include="OutpMapping.cs" />
     <Compile Include="StudentPL.cs" />
     <Compile Include="Student\FormStudents.cs">
@@ -95,8 +102,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormLessons.resx">
+      <DependentUpon>FormLessons.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_main.resx">
       <DependentUpon>Form_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarkAdder.resx">
+      <DependentUpon>MarkAdder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\FormStudents.resx">
       <DependentUpon>FormStudents.cs</DependentUpon>

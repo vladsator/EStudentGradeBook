@@ -14,14 +14,18 @@ namespace EStudentGradeBook_BLL
         readonly OutpMapping _outMapper = new OutpMapping();
         readonly InpMapping _inMaper = new InpMapping();
 
+        public StudentManager()
+        {
+            _studentList = _inMaper.StudentListMapper(_studentDataManager.GetList());
+        }
+
         public void AddStudent(StudentBLL student)
         {                      
             _studentDataManager.Add(_outMapper.StudentMapper(student));    
         }
 
         public List<StudentBLL> GetStudentList()
-        {
-            _studentList = _inMaper.StudentListMapper(_studentDataManager.GetList());
+        {           
             return _studentList;
         }
 

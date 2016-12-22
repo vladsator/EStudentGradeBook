@@ -36,5 +36,11 @@ namespace EStudentGradeBook_PL
                         .ForMember(dest => dest.students, opt => opt.MapFrom(src => StudentListMapper(src.students))));
             return Mapper.Map<GroupPL, GroupBll>(groupPl);
         }
+
+        public static LessonBLL LessonMapper(LessonPL lesson)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<LessonPL, LessonBLL>());
+            return Mapper.Map<LessonPL, LessonBLL>(lesson);
+        }
     }
 }
